@@ -19,10 +19,10 @@
 		// Prepare Variables
 		var
 			/* Application Specific Variables */
-			contentSelector = 'body .container:not(#topbar .container)',
-			$content = $(contentSelector).filter(':first'),
+			contentSelector = '.container:not(.navbar .container)',
+			$content = $(contentSelector).filter(':not(.navbar .container)').filter(':first'),
 			contentNode = $content.get(0),
-			$menu = $('#menu,#nav,nav:first,.nav:first').filter(':first'),
+			$menu = $('#topbar .nav').filter(':first'),
 			activeClass = 'active selected current youarehere',
 			activeSelector = '.active,.selected,.current,.youarehere',
 			menuChildrenSelector = '> li,> ul > li',
@@ -139,10 +139,10 @@
 					}
 					
 					// Update the menu
-					$menuChildren = $menu.find(menuChildrenSelector);
+					/*$menuChildren = $menu.find(menuChildrenSelector);
 					$menuChildren.filter(activeSelector).removeClass(activeClass);
 					$menuChildren = $menuChildren.has('a[href^="'+relativeUrl+'"],a[href^="/'+relativeUrl+'"],a[href^="'+url+'"]');
-					if ( $menuChildren.length === 1 ) { $menuChildren.addClass(activeClass); }
+					if ( $menuChildren.length === 1 ) { $menuChildren.addClass(activeClass); }*/
 
 					// Update the content
 					$content.stop(true,true);
