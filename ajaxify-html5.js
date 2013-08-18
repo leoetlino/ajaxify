@@ -20,7 +20,7 @@
 		var
 			/* Application Specific Variables */
 			contentSelector = '#get-started-content',
-			$content = $(contentSelector),
+			$content = $(contentSelector).filter(':first'),
 			contentNode = $content.get(0),
 			$menu = $('#topbar .nav').filter(':first'),
 			activeClass = 'active selected current youarehere',
@@ -112,7 +112,7 @@
 			// Start Fade Out
 			// Animating to opacity to 0 still keeps the element's height intact
 			// Which prevents that annoying pop bang issue when loading in new content
-			$content.animate({opacity:0},800);
+			$content.fadeOut();
 			
 			// Ajax Request the Traditional Page
 			$.ajax({
@@ -139,14 +139,14 @@
 					}
 					
 					// Update the menu
-					$menuChildren = $menu.find(menuChildrenSelector);
+					/*$menuChildren = $menu.find(menuChildrenSelector);
 					$menuChildren.filter(activeSelector).removeClass(activeClass);
 					$menuChildren = $menuChildren.has('a[href^="'+relativeUrl+'"],a[href^="/'+relativeUrl+'"],a[href^="'+url+'"]');
-					if ( $menuChildren.length === 1 ) { $menuChildren.addClass(activeClass); }
+					if ( $menuChildren.length === 1 ) { $menuChildren.addClass(activeClass); }*/
 
 					// Update the content
 					$content.stop(true,true);
-					$content.html(contentHtml).ajaxify().css('opacity',100).show(); /* you could fade in here if you'd like */
+					$content.html(contentHtml).ajaxify().fadeIn(); /* you could fade in here if you'd like */
 
 					// Update the title
 					document.title = $data.find('.document-title:first').text();
