@@ -19,8 +19,8 @@
 		// Prepare Variables
 		var
 			/* Application Specific Variables */
-			contentSelector = '.container:not(.navbar .container)',
-			$content = $(contentSelector).filter(':not(.navbar .container)').filter(':first'),
+			contentSelector = '#get-started-content',
+			$content = $(contentSelector).filter(':first'),
 			contentNode = $content.get(0),
 			$menu = $('#topbar .nav').filter(':first'),
 			activeClass = 'active selected current youarehere',
