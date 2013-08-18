@@ -20,7 +20,7 @@
 		var
 			/* Application Specific Variables */
 			contentSelector = '#get-started-content',
-			$content = $(contentSelector).filter(':first'),
+			$content = $(contentSelector),
 			contentNode = $content.get(0),
 			$menu = $('#topbar .nav').filter(':first'),
 			activeClass = 'active selected current youarehere',
@@ -139,10 +139,10 @@
 					}
 					
 					// Update the menu
-					/*$menuChildren = $menu.find(menuChildrenSelector);
+					$menuChildren = $menu.find(menuChildrenSelector);
 					$menuChildren.filter(activeSelector).removeClass(activeClass);
 					$menuChildren = $menuChildren.has('a[href^="'+relativeUrl+'"],a[href^="/'+relativeUrl+'"],a[href^="'+url+'"]');
-					if ( $menuChildren.length === 1 ) { $menuChildren.addClass(activeClass); }*/
+					if ( $menuChildren.length === 1 ) { $menuChildren.addClass(activeClass); }
 
 					// Update the content
 					$content.stop(true,true);
